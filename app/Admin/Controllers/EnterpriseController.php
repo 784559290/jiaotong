@@ -20,11 +20,8 @@ class EnterpriseController extends AdminController
         return Grid::make(new Enterprise(), function (Grid $grid) {
             $grid->id->sortable();
             $grid->name;
-            $grid->contentimg;
-            $grid->logimg;
-            $grid->created_at;
-            $grid->updated_at->sortable();
-
+            $grid->contentimg->image('/uploads/',100,100);
+            $grid->logimg->image('/uploads/',100,100);
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
 
@@ -64,8 +61,6 @@ class EnterpriseController extends AdminController
             $form->image('contentimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
             $form->image('logimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
 
-            $form->display('created_at');
-            $form->display('updated_at');
         });
     }
 }
