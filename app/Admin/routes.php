@@ -14,6 +14,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('commodity', CommodityController::class);
+    $router->get('RecommendedFrom', 'CommodityController@RecommendedFrom');
     $router->resource('holders', HolderController::class);
     $router->resource('classification', ClassificationController::class);
     $router->resource('enterprise', EnterpriseController::class);

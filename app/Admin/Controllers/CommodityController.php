@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Actions\Recommended;
+use App\Admin\Forms\RecommendedFrom;
 use App\Admin\Repositories\Classification;
 use App\Admin\Repositories\Commodity;
 use App\Models\Holder;
@@ -9,6 +11,10 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Show;
+use Dcat\Admin\Layout\Row;
+use Dcat\Admin\Widgets\Tab;
+use Dcat\Admin\Layout\Column;
+
 use Dcat\Admin\Controllers\AdminController;
 
 class CommodityController extends AdminController
@@ -31,7 +37,7 @@ class CommodityController extends AdminController
     protected function grid()
     {
 
-        return Grid::make(new Commodity(['Holder','Classification']), function (Grid $grid) {
+        $Grid =  Grid::make(new Commodity(['Holder','Classification']), function (Grid $grid) {
 
             $grid->id->sortable();
             $grid->quickSearch('orderName');
@@ -44,7 +50,10 @@ class CommodityController extends AdminController
                 $filter->equal('id');
                 $filter->like('Holder.name','持有人');
             });
+
         });
+        $Grid->tools(new Recommended());
+        return $Grid;
     }
 
     /**
@@ -108,4 +117,26 @@ class CommodityController extends AdminController
         });
 
     }
+
+    public function RecommendedFrom(Content $content){
+        return $content
+            ->header('推荐管理')
+            ->body(function (Row $row){
+                $row->column(12, function (Column $column) {
+                    $tab = new Tab();
+                    $tab->addLink('首页推荐','/admin/recommend?preview=1',$this->tabactive(1));
+                    $column->row( $tab->withCard());
+
+                    $this->tabactive(1) && $column->row( new RecommendedFrom());
+                });
+            });
+    }
+    /**
+     * @param string $type
+     * @return bool
+     */
+    public function tabactive($type){
+        return request()->input('preview',1) == $type;
+    }
+
 }
