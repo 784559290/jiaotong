@@ -9,6 +9,7 @@ return [
         'holdersid' => '持有人',
         'orderdetails' => '商品详情',
         'Slideshow' => '推荐图片',
+        'sort' => '排序',
         'classifications' => '分类',
     ],
     'options' => [
