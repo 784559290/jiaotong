@@ -38,11 +38,12 @@ class CommodityController extends AdminController
     {
 
         $Grid =  Grid::make(new Commodity(['Holder','Classification']), function (Grid $grid) {
-
+            $grid->model()->orderByRaw('sort is null')->orderBy('sort');
             $grid->id->sortable();
             $grid->quickSearch('orderName');
             $grid->orderName;
             $grid->brief->limit(25);
+            $grid->sort->editable(true);;
             $grid->column('Holder.name','持有人');
             $grid->column('Classification.name','分类');
           /*  $grid->classifications;*/
@@ -90,27 +91,27 @@ class CommodityController extends AdminController
 
         return Form::make(new Commodity(), function (Form $form) {
            /* $form->display('id');*/
-            $form->text('orderName');
-            $form->text('brief');
+            $form->text('orderName')->required();
+            $form->text('brief')->required();
+            $form->text('sort')->type('number');
             //持有人
             $form->selectResource('holdersid')
                 ->path('holders')
                 ->options(function ($v) { // 显示已选中的数据
                     if (!$v) return $v;
                     return Holder::find($v)->pluck('name', 'id');
-                });
+                })->required();
             //分类
             $form->selectResource('classifications')
                 ->path('classification')
                 ->options(function ($v) { // 显示已选中的数据
                     if (!$v) return $v;
                     return Classification::find($v)->pluck('name', 'id');
-                });
-            $form->editor('orderdetails');
+                })->required();
+            $form->editor('orderdetails')->required();
             $form->multipleImage('Slideshow')->saving(function ($paths) {
                  return implode(',', $paths);
-                //return json_encode($paths);
-            })->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');
+            })->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*')->required();
             //$form->editor('classifications');
 
 
