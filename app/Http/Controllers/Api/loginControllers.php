@@ -41,7 +41,6 @@ class loginControllers extends Controller
         $Appuser = Auth::guard('api')->user();
         $session_key =    $Appuser->session_key;
 
-
         if(!$session_key) {
             return returnJson(1, 'session_key 不存在');     //显示第一条错误
         }

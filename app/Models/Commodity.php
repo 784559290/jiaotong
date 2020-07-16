@@ -12,7 +12,7 @@ class Commodity extends Model
     protected $table = 'commodity';
 
     /**
-     * 回去持有者
+     * 持有者
      */
     public function Holder()
     {

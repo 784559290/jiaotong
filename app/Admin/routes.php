@@ -18,4 +18,5 @@ Route::group([
     $router->resource('holders', HolderController::class);
     $router->resource('classification', ClassificationController::class);
     $router->resource('enterprise', EnterpriseController::class);
+    $router->resource('investment', InvestmentController::class);
 });

@@ -26,4 +26,16 @@ Route::namespace('Api')->group(function () {
         Route::post('code', 'loginControllers@code');
         Route::post('index', 'loginControllers@index');
     });
+     Route::prefix('Commodity')->group(function () {
+        Route::post('index', 'CommodityController@index');
+        Route::post('details', 'CommodityController@details');
+    });
+     Route::prefix('enterprise')->group(function () {
+        Route::post('index', 'EnterpriseController@index');
+        Route::post('details', 'EnterpriseController@details');
+    });
+     Route::prefix('holders')->group(function () {
+        Route::post('index', 'HoldersController@index');
+        Route::post('details', 'HoldersController@details');
+    });
 });

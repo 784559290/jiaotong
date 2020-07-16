@@ -56,6 +56,7 @@ class ClassificationController extends AdminController
         return Form::make(new Classification(), function (Form $form) {
             $form->display('id');
             $form->text('name');
+
             $form->image('img')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');
 
             $form->display('created_at');

@@ -11,6 +11,7 @@ return [
         'Slideshow' => '推荐图片',
         'sort' => '排序',
         'classifications' => '分类',
+        'money' => '金额',
     ],
     'options' => [
     ],

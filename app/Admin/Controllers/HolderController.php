@@ -62,14 +62,13 @@ class HolderController extends AdminController
     protected function form()
     {
         return Form::make(new Holder(), function (Form $form) {
-            $form->display('id');
             $form->text('name');
-            /*$form->text('study');*/
+            $form->text('study');
+            $form->text('research');
+            $form->text('education');
+            $form->text('title');
             $form->image('portraitimg');
             $form->editor('details');
-
-            $form->display('created_at');
-            $form->display('updated_at');
         });
     }
 

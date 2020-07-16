@@ -4,9 +4,9 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Actions\Recommended;
 use App\Admin\Forms\RecommendedFrom;
-use App\Admin\Repositories\Classification;
 use App\Admin\Repositories\Commodity;
 use App\Models\Holder;
+use App\Models\Classification;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Layout\Content;
@@ -94,6 +94,7 @@ class CommodityController extends AdminController
             $form->text('orderName')->required();
             $form->text('brief')->required();
             $form->text('sort')->type('number');
+            $form->number('money')->rules('required|numeric');
             //持有人
             $form->selectResource('holdersid')
                 ->path('holders')

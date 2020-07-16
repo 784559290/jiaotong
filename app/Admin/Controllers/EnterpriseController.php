@@ -58,6 +58,13 @@ class EnterpriseController extends AdminController
         return Form::make(new Enterprise(), function (Form $form) {
             $form->display('id');
             $form->text('name');
+            $form->text('address');
+            $form->text('skillname');
+            $form->text('skiicontent');
+            $form->text('skiimoney');
+            $form->text('entcontent');
+            $form->text('technicalfields');
+            $form->text('cooperation');
             $form->image('contentimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
             $form->image('logimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
 

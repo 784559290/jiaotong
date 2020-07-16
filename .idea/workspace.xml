@@ -19,30 +19,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="上传代码">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jiaotong.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Common/function.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/2c86362be15379f3dadce120eafec178.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/750ef9c607b770103be69d6ede42e0b0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/c280e3be0bf23f8c9ddac24127a34f35.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/d5a382de0d377a720453c961d4123877.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/ea2e0b4fda19ce32d9d9850608419e4a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/validation.php" afterDir="false" />
+    <list default="true" id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/EnterpriseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/HomeControllers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HomeControllers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Commodity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Holder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +47,13 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -172,6 +170,17 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/overtrue/wechat" />
+      <path value="$PROJECT_DIR$/vendor/overtrue/socialite" />
+      <path value="$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
     </include_path>
   </component>
   <component name="ProjectId" id="1eLSrCmza2tFddDSwRBQZcgs4Jl" />
@@ -184,7 +193,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/zh-CN" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -195,6 +204,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers\Api" />
+      <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers" />
       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\resources\lang\zh-CN" />
       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong" />
     </key>
@@ -210,7 +221,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="" />
+      <changelist id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码" />
       <created>1594099576274</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -218,6 +229,7 @@
       <workItem from="1594099579879" duration="3978000" />
       <workItem from="1594170613955" duration="9663000" />
       <workItem from="1594257228209" duration="3079000" />
+      <workItem from="1594901502397" duration="6500000" />
     </task>
     <task id="LOCAL-00001" summary="上传代码">
       <created>1594111699806</created>
@@ -230,29 +242,76 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:E:/xamppphp7/htdocs/html/jiaotong/blog/app" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="上传代码" />
     <option name="LAST_COMMIT_MESSAGE" value="上传代码" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="662" y="240" key="NewPhpClassDialog" timestamp="1594100375848">
+    <state x="560" y="108" key="CommitChangelistDialog2" timestamp="1594820007549">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594100375848" />
+    <state x="560" y="108" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594820007549" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1594902167293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594902167293" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1594819986935">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594819986935" />
+    <state x="669" y="235" key="MultipleFileMergeDialog" timestamp="1594819986942">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594819986942" />
+    <state x="662" y="240" key="NewPhpClassDialog" timestamp="1594903268951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594903268951" />
     <state x="776" y="443" key="NewPhpFileDialog" timestamp="1594195370684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -261,9 +320,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594111703807" />
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594200482316">
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1594901570080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594200482316" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594901570080" />
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594819995515">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594819995515" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594906759145">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594906759145" />
   </component>
 </project>
