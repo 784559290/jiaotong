@@ -26,6 +26,7 @@ Route::namespace('Api')->group(function () {
         Route::post('code', 'loginControllers@code');
         Route::post('index', 'loginControllers@index');
     });
+
      Route::prefix('Commodity')->group(function () {
         Route::post('index', 'CommodityController@index');
         Route::post('details', 'CommodityController@details');
@@ -37,5 +38,26 @@ Route::namespace('Api')->group(function () {
      Route::prefix('holders')->group(function () {
         Route::post('index', 'HoldersController@index');
         Route::post('details', 'HoldersController@details');
+    });
+     Route::prefix('investment')->group(function () {
+        Route::post('index', 'InvestmentController@index');
+        Route::post('details', 'InvestmentController@details');
+    });
+
+
+
+    Route::prefix('about')->group(function () {
+        Route::post('addressincrease', 'AboutController@addressincrease');
+        Route::post('business', 'AboutController@business');
+        Route::post('favorite', 'AboutController@favorite');
+        Route::post('AddressDetails', 'AboutController@AddressDetails');
+
+    });
+    Route::prefix('saveabout')->group(function () {
+        Route::post('business', 'SaveAboutController@business');
+        Route::post('favorite', 'SaveAboutController@favorite');
+    });
+    Route::prefix('order')->group(function () {
+        Route::post('create', 'OrderController@Create');
     });
 });

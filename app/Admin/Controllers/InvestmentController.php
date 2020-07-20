@@ -30,11 +30,9 @@ class InvestmentController extends AdminController
             $grid->id->sortable();
             $grid->name;
             $grid->field;
-            $grid->content;
-            $grid->logimg;
-            $grid->created_at;
-            $grid->updated_at->sortable();
 
+            $grid->logimg->image('', 100, 100);;
+            $grid->created_at;
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
 
@@ -73,7 +71,7 @@ class InvestmentController extends AdminController
         return Form::make(new Investment(), function (Form $form) {
             $form->text('name');
             $form->text('field');
-            $form->text('content');
+            $form->editor('content');
             $form->image('logimg');
         });
     }

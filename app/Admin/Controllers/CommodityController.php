@@ -95,6 +95,7 @@ class CommodityController extends AdminController
             $form->text('brief')->required();
             $form->text('sort')->type('number');
             $form->number('money')->rules('required|numeric');
+            
             //持有人
             $form->selectResource('holdersid')
                 ->path('holders')
