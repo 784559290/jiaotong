@@ -21,4 +21,16 @@ class Order extends Model
     public function order_sons(){
         return $this->hasOne(Order_son::class,'order_id','id')->select(['id','order_id','comid','quantity','total_price','single_price']);
     }
+
+    public function commodity()
+    {
+        return $this->hasOneThrough(
+            Commodity::class,//目标表
+            Order_son::class,//中间表
+            'order_no', // 中间表查询
+            'id', //目标表的id
+            'order_no', // 第一次查询
+            'comid' //中间表的外键
+        )->select(['*']);
+    }
 }
