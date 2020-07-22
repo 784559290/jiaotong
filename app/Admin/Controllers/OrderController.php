@@ -2,7 +2,11 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Forms\Delivery;
+use App\Admin\Forms\DeliveryFrom;
 use App\Admin\Repositories\Order;
+use App\Models\Order as Moderls;
+use App\Models\Express;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
@@ -62,19 +66,18 @@ class OrderController extends AdminController
     protected function detail($id)
     {
 
-
-        $Admin = new  Content();
-        return $Admin->body(function (Row $row)use ($id){
-            $row->column(12, function (Column $column)use ($id) {
-                $tab = new Tab();
-                $tab->addLink('详情',"/admin/order/{$id}?preview=1",$this->tabactive(1));
-                $tab->addLink('奇幻推荐',"/admin/order/{$id}?preview=2" ,$this->tabactive(2));
-                $column->row( $tab->withCard());
-                $this->tabactive(1) && $column->row( $this->d1($id));
+        return  function (Row $row)use ($id){
+        $row->column(12, function (Column $column)use ($id) {
+            $tab = new Tab();
+            $delivery = $this->delivery($id);
+            $tab->add('详情', $this->d1($id));
+            $tab->add('科技',$this->d2($id) );
+            $tab->add('发货',new DeliveryFrom($delivery) );
+            $column->row( $tab->withCard());
+              /*  $this->tabactive(1) && $column->row( $this->d1($id));
+                $this->tabactive(2) && $column->row( $this->d2($id));*/
             });
-
-
-        });
+        };
 
     }
 
@@ -102,6 +105,7 @@ class OrderController extends AdminController
                 $tools->disableEdit();
                 $tools->disableList();
                 $tools->disableDelete();
+
                 // 显示快捷编辑按钮
                 //$tools->showQuickEdit();
             });
@@ -129,23 +133,45 @@ class OrderController extends AdminController
         });
     }
 
-    public function B2(){
+    public function d2($id){
+        return Show::make($id, new Order(['commodity']), function (Show $show) {
+
+            $show->field('commodity.orderName','科技名称');
+            $show->field('commodity.brief','科技简介');
+            $show->field('commodity.recommendimg','图片')->image('/uploads/');
+
+            $show->panel()->tools(function ($tools) {
+                $tools->disableEdit();
+                $tools->disableList();
+                $tools->disableDelete();
+                // 显示快捷编辑按钮
+                //$tools->showQuickEdit();
+            });
+        });
+    }
+    //发货
+    public function delivery($id){
+
+
+        $Express = Express::where('order_id',$id)->first();
+        $arr['courier'] = '';
+        $arr['order'] = $id;
+        if ($Express) {
+            $arr['address'] = $Express->address;
+            $arr['phone'] =$Express->phone;
+            $arr['name'] =  $Express->name;
+            $arr['courier'] =  $Express->courier;
+        }else{
+            $order  =Moderls::with('address')->find($id)->toArray();
+
+            $arr['address'] = $order['address']['province'].' '.$order['address']['city'].' '.$order['address']['areas'].' '.$order['address']['address'];
+            $arr['phone'] = $order['address']['phone'];
+            $arr['name'] =  $order['address']['name'];
+        }
+        return $arr;
+
 
     }
-    /**
-     * @param string $type
-     * @return bool
-     */
-    public function tabactive($type){
-        return request()->input('preview',1) == $type;
-    }
-    public function withCard()
-    {
-        return $this
-            ->class('card', true)
-            ->style('padding:.25rem .4rem .4rem');
-    }
-
     /**
      * Make a form builder.
      *

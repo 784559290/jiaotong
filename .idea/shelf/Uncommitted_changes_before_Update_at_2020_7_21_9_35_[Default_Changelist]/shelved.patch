@@ -1,0 +1,336 @@
+Index: app/Admin/Controllers/HolderController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Admin\\Controllers;\r\n\r\nuse App\\Admin\\Repositories\\Commodity;\r\nuse App\\Admin\\Repositories\\Holder;\r\nuse Dcat\\Admin\\Form;\r\nuse Dcat\\Admin\\Grid;\r\nuse Dcat\\Admin\\Show;\r\nuse Dcat\\Admin\\Controllers\\AdminController;\r\nuse Dcat\\Admin\\IFrameGrid;\r\n\r\nclass HolderController extends AdminController\r\n{\r\n    /**\r\n     * Make a grid builder.\r\n     *\r\n     * @return Grid\r\n     *\r\n     */\r\n    protected function grid()\r\n    {\r\n        return Grid::make(new Holder(), function (Grid $grid) {\r\n            $grid->id->sortable();\r\n            $grid->name;\r\n            $grid->portraitimg->image('/uploads',100,100);\r\n            $grid->created_at;\r\n            $grid->updated_at->sortable();\r\n\r\n            $grid->filter(function (Grid\\Filter $filter) {\r\n                $filter->equal('id');\r\n\r\n            });\r\n        });\r\n    }\r\n\r\n    /**\r\n     * Make a show builder.\r\n     *\r\n     * @param mixed $id\r\n     *\r\n     * @return Show\r\n     */\r\n    protected function detail($id)\r\n    {\r\n        return Show::make($id, new Holder(), function (Show $show) {\r\n            $show->id;\r\n            $show->name;\r\n            $show->study;\r\n            $show->portraitimg;\r\n            $show->details;\r\n            $show->created_at;\r\n            $show->updated_at;\r\n        });\r\n    }\r\n\r\n    /**\r\n     * Make a form builder.\r\n     *\r\n     * @return Form\r\n     */\r\n    protected function form()\r\n    {\r\n        return Form::make(new Holder(), function (Form $form) {\r\n            $form->text('name');\r\n            $form->text('study');\r\n            $form->text('research');\r\n            $form->text('education');\r\n            $form->text('title');\r\n            $form->image('portraitimg');\r\n            $form->editor('details');\r\n        });\r\n    }\r\n\r\n    protected function iFrameGrid()\r\n    {\r\n        $grid = new IFrameGrid(new Holder());\r\n        // 如果表格数据中带有 “name”、“title”或“username”字段，则可以不用设置\r\n        $grid->rowSelector()->titleColumn('name');\r\n        $grid->id;\r\n        $grid->name();\r\n        $grid->portraitimg->image('/uploads',100,100);\r\n        $grid->filter(function (Grid\\Filter $filter) {\r\n            $filter->equal('id');\r\n            $filter->like('name');\r\n        });\r\n        return $grid;\r\n    }\r\n    public function getTitleColumn()\r\n    {\r\n        return 'name';\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/Admin/Controllers/HolderController.php	(revision be7513dd2a10bc0b568fb2bd2c79b03b5eb15900)
++++ app/Admin/Controllers/HolderController.php	(date 1595226429064)
+@@ -26,7 +26,6 @@
+             $grid->portraitimg->image('/uploads',100,100);
+             $grid->created_at;
+             $grid->updated_at->sortable();
+-
+             $grid->filter(function (Grid\Filter $filter) {
+                 $filter->equal('id');
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f\" name=\"Default Changelist\" comment=\"上传代码\">\r\n      <change afterPath=\"$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/app/Http/Controllers/Api/EnterpriseController.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/blog.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/blog.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/php.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/php.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Admin/Controllers/HolderController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Admin/Controllers/HolderController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Admin/routes.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Admin/routes.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Models/Commodity.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Models/Commodity.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/Models/Holder.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/Models/Holder.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/composer.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/composer.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/resources/lang/zh-CN/commodity.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/resources/lang/zh-CN/commodity.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/resources/lang/zh-CN/holder.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/resources/lang/zh-CN/holder.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/routes/api.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/api.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution>\r\n      <executable />\r\n    </execution>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"MERGE\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-util\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php56\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/jwt\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/predis/predis\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tymon/jwt-auth\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/simple-cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psy/psysh\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/filp/whoops\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/opis/closure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/voku/portable-ascii\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/asm89/stack-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/brick/math\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/flare-client-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/commonmark\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/flysystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nesbot/carbon\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/collection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/uuid\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/scrivo/highlight.php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/framework\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/tinker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/mockery/mockery\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpspec/prophecy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-token-stream\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-iconv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/spatie/eloquent-sortable\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/hamcrest/hamcrest-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fideloper/proxy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fruitcake/laravel-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpoption/phpoption\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/maximebf/debugbar\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/namshi/jose\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dcat/laravel-admin\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fzaninotto/faker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nunomaduro/collision\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/swiftmailer/swiftmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dragonmantank/cron-expression\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php70\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/overtrue/wechat\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/overtrue/socialite\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/paragonie/random_compat\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/pimple/pimple\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1eLSrCmza2tFddDSwRBQZcgs4Jl\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/app/Http/Controllers/Api\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\xamppphp7\\htdocs\\html\\jiaotong\\blog\\app\\Http\\Controllers\\Api\" />\r\n      <recent name=\"E:\\xamppphp7\\htdocs\\html\\jiaotong\\blog\\app\\Http\\Controllers\" />\r\n      <recent name=\"E:\\xmapp7.4\\htdocs\\html\\D\\jiaotong\\resources\\lang\\zh-CN\" />\r\n      <recent name=\"E:\\xmapp7.4\\htdocs\\html\\D\\jiaotong\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"phpunit.xml\" type=\"PHPUnitRunConfigurationType\" factoryName=\"PHPUnit\">\r\n      <TestRunner scope=\"XML\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f\" name=\"Default Changelist\" comment=\"上传代码\" />\r\n      <created>1594099576274</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1594099576274</updated>\r\n      <workItem from=\"1594099579879\" duration=\"3978000\" />\r\n      <workItem from=\"1594170613955\" duration=\"9663000\" />\r\n      <workItem from=\"1594257228209\" duration=\"3079000\" />\r\n      <workItem from=\"1594901502397\" duration=\"6500000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"上传代码\">\r\n      <created>1594111699806</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1594111699806</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"1\">\r\n          <value>\r\n            <State>\r\n              <option name=\"SHOW_ONLY_AFFECTED_CHANGES\" value=\"true\" />\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"HEAD\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"structure\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"dir:E:/xamppphp7/htdocs/html/jiaotong/blog/app\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"COLUMN_ORDER\" />\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"OPEN_TABS\">\r\n      <set>\r\n        <option value=\"1\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"上传代码\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"上传代码\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"560\" y=\"108\" key=\"CommitChangelistDialog2\" timestamp=\"1594820007549\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"560\" y=\"108\" key=\"CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594820007549\" />\r\n    <state x=\"92\" y=\"92\" width=\"1736\" height=\"856\" key=\"DiffContextDialog\" timestamp=\"1594902167293\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"92\" y=\"92\" width=\"1736\" height=\"856\" key=\"DiffContextDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594902167293\" />\r\n    <state x=\"184\" y=\"86\" key=\"MergeDialog\" timestamp=\"1594819986935\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"184\" y=\"86\" key=\"MergeDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594819986935\" />\r\n    <state x=\"669\" y=\"235\" key=\"MultipleFileMergeDialog\" timestamp=\"1594819986942\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"669\" y=\"235\" key=\"MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594819986942\" />\r\n    <state x=\"662\" y=\"240\" key=\"NewPhpClassDialog\" timestamp=\"1594903268951\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"662\" y=\"240\" key=\"NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594903268951\" />\r\n    <state x=\"776\" y=\"443\" key=\"NewPhpFileDialog\" timestamp=\"1594195370684\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"776\" y=\"443\" key=\"NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594195370684\" />\r\n    <state x=\"552\" y=\"253\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1594111703807\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"552\" y=\"253\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594111703807\" />\r\n    <state x=\"640\" y=\"344\" key=\"com.intellij.ide.util.TipDialog\" timestamp=\"1594901570080\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"640\" y=\"344\" key=\"com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594901570080\" />\r\n    <state x=\"753\" y=\"433\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1594819995515\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"753\" y=\"433\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594819995515\" />\r\n    <state x=\"623\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1594906759145\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"623\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1594906759145\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision be7513dd2a10bc0b568fb2bd2c79b03b5eb15900)
++++ .idea/workspace.xml	(date 1595295256804)
+@@ -19,26 +19,11 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码">
+-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/EnterpriseController.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php" afterDir="false" />
++    <list default="true" id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="小程序登录">
+       <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Models/Commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Commodity.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/Models/Holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Holder.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -47,13 +32,10 @@
+   </component>
+   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+-    <execution>
+-      <executable />
+-    </execution>
++    <execution />
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="MERGE" />
+   </component>
+   <component name="PhpWorkspaceProjectConfiguration">
+     <include_path>
+@@ -170,17 +152,15 @@
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+       <path value="$PROJECT_DIR$/vendor/overtrue/wechat" />
+       <path value="$PROJECT_DIR$/vendor/overtrue/socialite" />
++      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
++      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
++      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
++      <path value="$PROJECT_DIR$/vendor/psr/cache" />
++      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+       <path value="$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer" />
+-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+-      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+     </include_path>
+   </component>
+   <component name="ProjectId" id="1eLSrCmza2tFddDSwRBQZcgs4Jl" />
+@@ -193,7 +173,7 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/zh-CN" />
+     <property name="node.js.detected.package.eslint" value="true" />
+     <property name="node.js.detected.package.tslint" value="true" />
+     <property name="node.js.path.for.package.eslint" value="project" />
+@@ -204,8 +184,6 @@
+   </component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+-      <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers\Api" />
+-      <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers" />
+       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\resources\lang\zh-CN" />
+       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong" />
+     </key>
+@@ -221,7 +199,7 @@
+   </component>
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码" />
++      <changelist id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="" />
+       <created>1594099576274</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+@@ -229,7 +207,14 @@
+       <workItem from="1594099579879" duration="3978000" />
+       <workItem from="1594170613955" duration="9663000" />
+       <workItem from="1594257228209" duration="3079000" />
+-      <workItem from="1594901502397" duration="6500000" />
++      <workItem from="1594343649761" duration="7936000" />
++      <workItem from="1594603835550" duration="599000" />
++      <workItem from="1594688658885" duration="603000" />
++      <workItem from="1594883273862" duration="2035000" />
++      <workItem from="1594948522567" duration="2073000" />
++      <workItem from="1595226030147" duration="4000" />
++      <workItem from="1595226411707" duration="2125000" />
++      <workItem from="1595293669471" duration="1120000" />
+     </task>
+     <task id="LOCAL-00001" summary="上传代码">
+       <created>1594111699806</created>
+@@ -238,99 +223,60 @@
+       <option name="project" value="LOCAL" />
+       <updated>1594111699806</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="小程序登录">
++      <created>1594368969238</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1594368969238</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="1" />
++    <option name="version" value="2" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+-        <entry key="1">
+-          <value>
+-            <State>
+-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+-              <option name="FILTERS">
+-                <map>
+-                  <entry key="branch">
+-                    <value>
+-                      <list>
+-                        <option value="HEAD" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                  <entry key="structure">
+-                    <value>
+-                      <list>
+-                        <option value="dir:E:/xamppphp7/htdocs/html/jiaotong/blog/app" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                </map>
+-              </option>
+-            </State>
+-          </value>
+-        </entry>
+         <entry key="MAIN">
+           <value>
+-            <State>
+-              <option name="COLUMN_ORDER" />
+-            </State>
++            <State />
+           </value>
+         </entry>
+       </map>
+     </option>
+-    <option name="OPEN_TABS">
+-      <set>
+-        <option value="1" />
+-      </set>
+-    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="上传代码" />
+-    <option name="LAST_COMMIT_MESSAGE" value="上传代码" />
++    <MESSAGE value="小程序登录" />
++    <option name="LAST_COMMIT_MESSAGE" value="小程序登录" />
+   </component>
+   <component name="WindowStateProjectService">
+-    <state x="560" y="108" key="CommitChangelistDialog2" timestamp="1594820007549">
++    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594362074687">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="560" y="108" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594820007549" />
+-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1594902167293">
++    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594362074687" />
++    <state x="184" y="86" key="MergeDialog" timestamp="1595227922133">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594902167293" />
+-    <state x="184" y="86" key="MergeDialog" timestamp="1594819986935">
++    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595227922133" />
++    <state x="662" y="240" key="NewPhpClassDialog" timestamp="1594100375848">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594819986935" />
+-    <state x="669" y="235" key="MultipleFileMergeDialog" timestamp="1594819986942">
+-      <screen x="0" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="669" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594819986942" />
+-    <state x="662" y="240" key="NewPhpClassDialog" timestamp="1594903268951">
+-      <screen x="0" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="662" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594903268951" />
++    <state x="662" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594100375848" />
+     <state x="776" y="443" key="NewPhpFileDialog" timestamp="1594195370684">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="776" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594195370684" />
+-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1594111703807">
++    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1594368972324">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594111703807" />
+-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1594901570080">
++    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594368972324" />
++    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595295256758">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594901570080" />
+-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594819995515">
+-      <screen x="0" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594819995515" />
+-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594906759145">
+-      <screen x="0" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594906759145" />
++    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595295256758" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/php.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PhpIncludePathManager\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-util\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php56\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/jwt\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/predis/predis\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tymon/jwt-auth\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/simple-cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psy/psysh\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/filp/whoops\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/opis/closure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/voku/portable-ascii\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/asm89/stack-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/brick/math\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/flare-client-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/commonmark\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/flysystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nesbot/carbon\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/collection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/uuid\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/scrivo/highlight.php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/framework\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/tinker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/mockery/mockery\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpspec/prophecy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-token-stream\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-iconv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/spatie/eloquent-sortable\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/hamcrest/hamcrest-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fideloper/proxy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fruitcake/laravel-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpoption/phpoption\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/maximebf/debugbar\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/namshi/jose\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dcat/laravel-admin\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fzaninotto/faker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nunomaduro/collision\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/swiftmailer/swiftmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dragonmantank/cron-expression\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php70\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/overtrue/wechat\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/overtrue/socialite\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/paragonie/random_compat\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/pimple/pimple\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"PhpProjectSharedConfiguration\" php_language_level=\"7.2\" />\r\n  <component name=\"PhpUnit\">\r\n    <phpunit_settings>\r\n      <PhpUnitSettings configuration_file_path=\"$PROJECT_DIR$/phpunit.xml\" custom_loader_path=\"$PROJECT_DIR$/vendor/autoload.php\" use_configuration_file=\"true\" />\r\n    </phpunit_settings>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/php.xml	(revision be7513dd2a10bc0b568fb2bd2c79b03b5eb15900)
++++ .idea/php.xml	(date 1595227919743)
+@@ -115,17 +115,15 @@
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+       <path value="$PROJECT_DIR$/vendor/overtrue/wechat" />
+       <path value="$PROJECT_DIR$/vendor/overtrue/socialite" />
+-      <path value="$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer" />
+-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+-      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
++      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
++      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
++      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
++      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+       <path value="$PROJECT_DIR$/vendor/psr/cache" />
++      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
++      <path value="$PROJECT_DIR$/vendor/easywechat-composer/easywechat-composer" />
+     </include_path>
+   </component>
+   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+@@ -134,4 +132,4 @@
+       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
+     </phpunit_settings>
+   </component>
+-</project>
+\ No newline at end of file
++</project>
+Index: .idea/blog.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"WEB_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/spec\" isTestSource=\"true\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/app\" isTestSource=\"false\" packagePrefix=\"App\\\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/tests\" isTestSource=\"true\" packagePrefix=\"Tests\\\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/easywechat-composer/easywechat-composer\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/overtrue/socialite\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/overtrue/wechat\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/paragonie/random_compat\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/pimple/pimple\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/psr/cache\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/cache\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/cache-contracts\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/polyfill-php70\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/psr-http-message-bridge\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/vendor/symfony/var-exporter\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/blog.iml	(revision be7513dd2a10bc0b568fb2bd2c79b03b5eb15900)
++++ .idea/blog.iml	(date 1595227922118)
+@@ -3,21 +3,12 @@
+   <component name="NewModuleRootManager">
+     <content url="file://$MODULE_DIR$">
+       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
++      <sourceFolder url="file://$MODULE_DIR$/tests/Unit" isTestSource="true" />
+       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/easywechat-composer/easywechat-composer" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/overtrue/socialite" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/overtrue/wechat" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/pimple/pimple" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache-contracts" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/psr-http-message-bridge" />
+-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />
++      <sourceFolder url="file://$MODULE_DIR$/tests/Feature" isTestSource="true" />
++      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+-</module>
+\ No newline at end of file
++</module>

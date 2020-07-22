@@ -95,7 +95,7 @@ class CommodityController extends AdminController
             $form->text('brief')->required();
             $form->text('sort')->type('number');
             $form->number('money')->rules('required|numeric');
-            
+
             //持有人
             $form->selectResource('holdersid')
                 ->path('holders')
@@ -111,6 +111,7 @@ class CommodityController extends AdminController
                     return Classification::find($v)->pluck('name', 'id');
                 })->required();
             $form->editor('orderdetails')->required();
+            $form->image('recommendimg','列表图片')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*')->required();
             $form->multipleImage('Slideshow')->saving(function ($paths) {
                  return implode(',', $paths);
             })->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*')->required();

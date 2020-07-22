@@ -19,26 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/EnterpriseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php" afterDir="false" />
+    <list default="true" id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="小程序登录">
+      <change afterPath="$PROJECT_DIR$/app/Models/Express.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ClassificationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/EnterpriseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/loginControllers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Commodity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Holder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/commodity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/enterprise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/OrderController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +33,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -193,7 +177,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -204,6 +188,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\app\Models" />
       <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers\Api" />
       <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers" />
       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\resources\lang\zh-CN" />
@@ -221,7 +206,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9d5800a0-b7c7-4c81-bb8a-ff7b97e5a30f" name="Default Changelist" comment="上传代码" />
+      <changelist id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="小程序登录" />
       <created>1594099576274</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -230,6 +215,7 @@
       <workItem from="1594170613955" duration="9663000" />
       <workItem from="1594257228209" duration="3079000" />
       <workItem from="1594901502397" duration="6500000" />
+      <workItem from="1595384317345" duration="13934000" />
     </task>
     <task id="LOCAL-00001" summary="上传代码">
       <created>1594111699806</created>
@@ -238,11 +224,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594111699806</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="小程序登录">
+      <created>1595323756493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595323756493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -274,24 +267,32 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="上传代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="上传代码" />
+    <MESSAGE value="小程序登录" />
+    <option name="LAST_COMMIT_MESSAGE" value="小程序登录" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="641" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595397762618">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="641" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595397762618" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595402875960">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595402875960" />
     <state x="560" y="108" key="CommitChangelistDialog2" timestamp="1594820007549">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -316,21 +317,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="776" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594195370684" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1594111703807">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1595323783365">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594111703807" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595323783365" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1594901570080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594901570080" />
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594819995515">
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595295365382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594819995515" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594906759145">
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595295365382" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1595323397063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594906759145" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595323397063" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595296220272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595296220272" />
   </component>
 </project>
