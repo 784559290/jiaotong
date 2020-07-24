@@ -44,9 +44,10 @@ class DeliveryFrom extends Form
             $Express->address = $input['address'];
             $Express->courier = $input['courier'];
             $Express->order_id = $input['order'];
+
             $Express->save();
         }
-
+        Order::where('id', $input['order'])->update(['status' => 5]);
         return $this->success('保存成功', 'order/'.$input['order']);
     }
 

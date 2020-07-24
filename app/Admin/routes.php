@@ -20,4 +20,5 @@ Route::group([
     $router->resource('enterprise', EnterpriseController::class);
     $router->resource('investment', InvestmentController::class);
     $router->resource('order', OrderController::class);
+    $router->resource('user_info', UserController::class);
 });

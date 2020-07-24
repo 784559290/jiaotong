@@ -2,6 +2,7 @@
 return [
     'labels' => [
         'Order' => '订单管理',
+        'order' => '订单管理',
     ],
     'fields' => [
         'user_id' => '用户',
@@ -14,5 +15,7 @@ return [
         'close_time' => '订单关闭时间',
     ],
     'options' => [
+        'Order' => '订单管理',
     ],
+
 ];

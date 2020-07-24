@@ -27,15 +27,19 @@ class OrderController extends AdminController
      */
     protected function grid()
     {
+
         return Grid::make(new Order(['user']), function (Grid $grid) {
             $grid->id->sortable();
+            if (request()->input('name')){
+                $grid->model()->join('users', 'users.id', '=', 'order.user_id')->where('users.nickname', request()->input('name'));
+            }
             $grid->column('user.nickname','用户');
             $grid->order_no;
 
             $grid->payment_type->using([1 => '微信小程序']);
             $grid->payment;
 
-            $grid->status->using([1 => '待支付', 2 => '已支付', 3 => '关闭订单'])
+            $grid->status->using([1 => '待支付', 2 => '已支付', 3 => '关闭订单',4=>'订单删除',5=>'已发货',6=>'订单完成'])
                 ->dot(
                     [
                         1 => 'primary',
@@ -112,7 +116,7 @@ class OrderController extends AdminController
             $show->row(function (Show\Row $show){
                 $show->width(4)->payment;
                 $show->width(4)->payment_type->using([1 => '微信小程序']);
-                $show->status->using([1 => '待支付', 2 => '已支付', 3 => '关闭订单'])
+                $show->status->using([1 => '待支付', 2 => '已支付', 3 => '关闭订单',4=>'订单删除',5=>'已发货',6=>'订单完成'])
                     ->dot(
                         [
                             1 => 'primary',

@@ -62,11 +62,12 @@ class EnterpriseController extends AdminController
             $form->text('skillname');
             $form->text('skiicontent');
             $form->text('skiimoney');
-            $form->text('entcontent');
+
             $form->text('technicalfields');
             $form->text('cooperation');
-            $form->image('contentimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
-            $form->image('logimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;
+         /*   $form->image('contentimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');;*/
+            $form->image('logimg')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*');
+            $form->editor('entcontent');
 
         });
     }
