@@ -20,7 +20,7 @@ class UserController extends AdminController
         return Grid::make(new User(), function (Grid $grid) {
             $grid->id->sortable();
             $grid->nickname->link(function ($a)use ($grid){
-                return '/admin/order?name='.$a ;
+                return '/admin/order?id='.$this->id ;
             });
             $grid->phone;
             $grid->openid;

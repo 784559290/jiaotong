@@ -30,8 +30,8 @@ class OrderController extends AdminController
 
         return Grid::make(new Order(['user']), function (Grid $grid) {
             $grid->id->sortable();
-            if (request()->input('name')){
-                $grid->model()->join('users', 'users.id', '=', 'order.user_id')->where('users.nickname', request()->input('name'));
+            if (request()->input('id')){
+                $grid->model()->where('user_id', request()->input('id'));
             }
             $grid->column('user.nickname','用户');
             $grid->order_no;
@@ -54,7 +54,7 @@ class OrderController extends AdminController
 
 
             $grid->filter(function (Grid\Filter $filter) {
-                $filter->equal('id');
+                $filter->equal('order_no');
 
             });
         });
