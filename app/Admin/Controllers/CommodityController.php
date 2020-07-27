@@ -40,16 +40,17 @@ class CommodityController extends AdminController
         $Grid =  Grid::make(new Commodity(['Holder','Classification']), function (Grid $grid) {
             $grid->model()->orderByRaw('sort is null')->orderBy('sort');
             $grid->id->sortable();
-            $grid->quickSearch('orderName');
+            $grid->quickSearch('orderName')->placeholder('名称');
             $grid->orderName;
-            $grid->brief->limit(25);
-            $grid->sort->editable(true);;
+            $grid->recommend->switch();
+            $grid->recommendimg->image('/uploads/',200,100);
+            $grid->sort->editable(true);
             $grid->column('Holder.name','持有人');
             $grid->column('Classification.name','分类');
           /*  $grid->classifications;*/
             $grid->filter(function (Grid\Filter $filter) {
-                $filter->equal('id');
                 $filter->like('Holder.name','持有人');
+                $filter->equal('recommend','首页商品')->select([1=>'查看']);
             });
 
         });
@@ -95,7 +96,13 @@ class CommodityController extends AdminController
             $form->text('brief')->required();
             $form->text('sort')->type('number');
             $form->number('money')->rules('required|numeric');
-
+            $form->switch('recommend')
+                ->customFormat(function ($v) {
+                    return $v == '打开' ? 1 : 0;
+                })
+                ->saving(function ($v) {
+                    return $v ? '1' : '0';
+                });
             //持有人
             $form->selectResource('holdersid')
                 ->path('holders')

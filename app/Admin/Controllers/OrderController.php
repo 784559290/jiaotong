@@ -33,6 +33,12 @@ class OrderController extends AdminController
             if (request()->input('id')){
                 $grid->model()->where('user_id', request()->input('id'));
             }
+            if (request()->input('type')){
+                $grid->model()->where('status', request()->input('type'));
+            }
+
+            $grid->quickSearch('order_no')->placeholder('订单号');
+
             $grid->column('user.nickname','用户');
             $grid->order_no;
 

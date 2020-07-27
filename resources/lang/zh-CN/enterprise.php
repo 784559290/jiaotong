@@ -7,6 +7,7 @@ return [
         'name' => '企业名称',
         'contentimg' => '类容图片',
         'logimg' => '企业log图片',
+        'sort' => '排序',
         'address' => '企业地址',
         'skillname' => '技能名称',
         'skiicontent' => '技能描述',

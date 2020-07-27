@@ -20,6 +20,7 @@ class EnterpriseController extends AdminController
         return Grid::make(new Enterprise(), function (Grid $grid) {
             $grid->id->sortable();
             $grid->name;
+            $grid->sort->editable();
             $grid->contentimg->image('/uploads/',100,100);
             $grid->logimg->image('/uploads/',100,100);
             $grid->filter(function (Grid\Filter $filter) {
@@ -59,6 +60,7 @@ class EnterpriseController extends AdminController
             $form->display('id');
             $form->text('name');
             $form->text('address');
+            $form->text('sort')->rules('numeric');
             $form->text('skillname');
             $form->text('skiicontent');
             $form->text('skiimoney');
