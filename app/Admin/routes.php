@@ -21,4 +21,5 @@ Route::group([
     $router->resource('investment', InvestmentController::class);
     $router->resource('order', OrderController::class);
     $router->resource('user_info', UserController::class);
+    $router->resource('Shuffling', ShufflingController::class);
 });

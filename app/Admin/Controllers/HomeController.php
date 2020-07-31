@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Metrics\Examples;
 use App\Http\Controllers\Controller;
+use Dcat\Admin\Admin;
 use Dcat\Admin\Controllers\Dashboard;
 use Dcat\Admin\Layout\Column;
 use Dcat\Admin\Layout\Content;
@@ -13,6 +14,12 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
+
+
+        if (!Admin::user()->can('auth-management')) {
+        // return $this->res
+        }
+
         return $content
             ->header('Dashboard')
             ->description('Description...')
