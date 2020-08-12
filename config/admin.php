@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => '科创聚场技术',
+    'name' => 'Dcat Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<img src="/vendors/dcat-admin/images/logo.png" width="35"> &nbsp;科创聚场技术',
+    'logo' => '<img src="/vendors/dcat-admin/images/logo.png" width="35"> &nbsp;Dcat Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -156,7 +156,7 @@ return [
         | The global Grid action display class.
         |--------------------------------------------------------------------------
         */
-        'grid_action_class' => Dcat\Admin\Grid\Displayers\Actions::class,
+        'grid_action_class' => Dcat\Admin\Grid\Displayers\DropdownActions::class,
     ],
 
     /*
@@ -221,7 +221,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'admin',
+        'disk' => 'public',
 
         // Image and file upload path under the disk above.
         'directory' => [

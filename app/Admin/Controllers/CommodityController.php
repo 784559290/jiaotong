@@ -52,8 +52,11 @@ class CommodityController extends AdminController
                 $filter->like('Holder.name','持有人');
                 $filter->equal('recommend','首页商品')->select([1=>'查看']);
             });
-
+            /*$grid->model()->setConstraints([
+                'key' => 'value',
+            ]);//新增按钮带参数*/
         });
+
         $Grid->tools(new Recommended());
         return $Grid;
     }

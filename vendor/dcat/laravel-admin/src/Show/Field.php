@@ -226,7 +226,7 @@ class Field implements Renderable
                 if (url()->isValidUrl($path)) {
                     $src = $path;
                 } elseif ($server) {
-                    $src = $server.$path;
+                    $src = rtrim($server, '/').'/'.ltrim($path, '/');
                 } else {
                     $disk = config('admin.upload.disk');
 
@@ -254,7 +254,7 @@ class Field implements Renderable
     {
         $field = $this;
 
-        return $this->unescape()->as(function ($path) use ($server, $download, $field) {
+        return $this->unescape()->as(function ($path) use ($server , $field) {
             $name = basename($path);
 
             $field->wrap(false);
