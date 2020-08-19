@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\Commodity;
 use App\Admin\Repositories\Holder;
+use App\Models\Classification;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -46,7 +47,7 @@ class HolderController extends AdminController
         return Show::make($id, new Holder(), function (Show $show) {
             $show->id;
             $show->name;
-            $show->study;
+
             $show->portraitimg;
             $show->details;
             $show->created_at;
@@ -63,7 +64,13 @@ class HolderController extends AdminController
     {
         return Form::make(new Holder(), function (Form $form) {
             $form->text('name');
-            $form->text('study');
+            //分类
+            $form->selectResource('classification')
+                ->path('classification')
+                ->options(function ($v) { // 显示已选中的数据
+                    if (!$v) return $v;
+                    return Classification::find($v)->pluck('name', 'id');
+                })->required();
             $form->text('research');
             $form->text('education');
             $form->text('title');

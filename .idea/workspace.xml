@@ -20,31 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="291060e7-4561-40a6-81e5-577d81e36633" name="Default Changelist" comment="代码上传">
+      <change afterPath="$PROJECT_DIR$/`" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/ShufflingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Repositories/Shuffling.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EnableCrossRequestMiddleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Shuffling.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_24_100325_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_07_29_141928_create_shuffling_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/939e53356eed3a8ed04b14bb374f6228.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/Snipaste_2020-08-18_14-28-36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/plugins/jquery-qrcode/dist/jquery-qrcode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/plugins/jquery-qrcode/dist/jquery-qrcode.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/shuffling.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CommodityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/HolderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/InvestmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/InvestmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CommodityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/HoldersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-green.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte-green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/adminlte/adminlte.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-green.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app-green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/css/dcat-app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/action.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/action.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/resource-selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/resource-selector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/resource-selector.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/extra/resource-selector.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/js/dcat-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/js/dcat-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/js/dcat-app.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/dcat-admin/dcat/js/dcat-app.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-TW/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-TW/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/dcat/laravel-admin/src/Show/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/dcat/laravel-admin/src/Show/Field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/彩虹六号：围攻2019-10-7-10-50-54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/彩虹六号：围攻2019-12-15-19-7-55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/彩虹六号：围攻2019-6-28-22-23-56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN/holder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +195,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../xiamgmu/tongyi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -208,11 +206,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\app\Http\Middleware" />
       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\app\Models" />
       <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers\Api" />
       <recent name="E:\xamppphp7\htdocs\html\jiaotong\blog\app\Http\Controllers" />
       <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong\resources\lang\zh-CN" />
-      <recent name="E:\xmapp7.4\htdocs\html\D\jiaotong" />
     </key>
   </component>
   <component name="RunManager">
@@ -248,7 +246,11 @@
       <workItem from="1596158452095" duration="649000" />
       <workItem from="1596183652223" duration="1153000" />
       <workItem from="1596420096003" duration="13000" />
-      <workItem from="1597200573602" duration="3944000" />
+      <workItem from="1597200573602" duration="4005000" />
+      <workItem from="1597732186768" duration="5831000" />
+      <workItem from="1597741284861" duration="643000" />
+      <workItem from="1597801444449" duration="7047000" />
+      <workItem from="1597822061989" duration="4017000" />
     </task>
     <task id="LOCAL-00001" summary="上传代码">
       <created>1594111699806</created>
@@ -292,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596183675541</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="代码上传">
+      <created>1597224954089</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1597224954089</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,10 +364,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="641" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595397762618" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595402875960">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597824929094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595402875960" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597824929094" />
     <state x="560" y="108" key="CommitChangelistDialog2" timestamp="1594820007549">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -387,25 +396,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="776" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594195370684" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596183677421">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597224969759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596183677421" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597224969759" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1594901570080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594901570080" />
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595295365382">
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597801460186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595295365382" />
+    <state x="753" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597801460186" />
+    <state x="662" y="228" width="596" height="584" key="find.popup" timestamp="1597824322650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="228" width="596" height="584" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597824322650" />
+    <state x="665" y="307" key="git4idea.merge.GitPullDialog" timestamp="1597224964718">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="665" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597224964718" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1595323397063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595323397063" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595487692282">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597741297221">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595487692282" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597741297221" />
   </component>
 </project>

@@ -5,7 +5,7 @@ return [
     ],
     'fields' => [
         'name' => '名称',
-        'study' => '研究方向',
+        'classification' => '分类',
         'portraitimg' => '头像',
         'research' => '研究方向',
         'education' => '学历',

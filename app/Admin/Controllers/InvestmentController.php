@@ -31,7 +31,7 @@ class InvestmentController extends AdminController
             $grid->name;
             $grid->field;
 
-            $grid->logimg->image('', 100, 100);;
+            $grid->logimg->image('/uploads/', 100, 100);;
             $grid->created_at;
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
@@ -72,7 +72,7 @@ class InvestmentController extends AdminController
             $form->text('name');
             $form->text('field');
             $form->editor('content');
-            $form->image('logimg');
+            $form->image('logimg','列表图片')->uniqueName()->accept('jpg,png,gif,jpeg', 'image/*')->required();
         });
     }
 }
